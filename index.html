@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+rel="stylesheet">
+<title>Flask App Form</title>
+</head>
+<body>
+<div class="container mt-4">
+<h1># USER FORM</h1>
+<form method="POST">
+{{ form.hidden_tag() }}
+<div class="mb-3">{{ form.name.label }}{{ form.name(class_='form-control')
+}}</div>
+<div class="mb-3">{{ form.email.label }}{{
+form.email(class_='form-control') }}</div>
+<div>{{ form.submit(class_='btn btn-primary') }}</div>
+</form>
+<table class="table table-striped mt-4 border border-2">
+<thead><tr><th>ID</th><th>NAME</th><th>EMAIL-ADDRESS</th><th>ACTIONS</th></tr></t
+head>
+<tbody>
+{% for user in users %}
+<tr>
+<td>{{ user.id }}</td>
+<td>{{ user.name }}</td>
+<td>{{ user.email }}</td>
+<td>
+<a href="{{ url_for('update', id=user.id) }}" class="btn btn-sm
+btn-warning">UPDATE DATA</a>
+<a href="{{ url_for('delete', id=user.id) }}" class="btn btn-sm
+btn-danger">DELETE RECORD</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</body>
+</html>
