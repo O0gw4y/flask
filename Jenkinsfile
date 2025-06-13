@@ -2,7 +2,7 @@ flag=true
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        maven 'Maven1'
         // M.Taha Malik 231334
     }
     environment {
